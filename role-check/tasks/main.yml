@@ -1,0 +1,14 @@
+---
+- name: Install Apache
+  ansible.builtin.apt:
+    name: apache2
+    state: present
+    update_cache: true
+
+- name: Copy WWW Website Files
+  ansible.builtin.copy:
+    src: files/index.html
+    dest: /var/www/html/index.html
+    owner: ubuntu
+    group: ubuntu
+    mode: '0644'
